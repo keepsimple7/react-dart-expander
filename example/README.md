@@ -1,4 +1,4 @@
-# Serving / Viewing React Dart Examples
+# Serving / Viewing React Dart Expander
 
 1. Run `dart pub get` in your terminal. 
 2. Run `webdev serve example`.

@@ -1,5 +1,5 @@
 {
-  "name": "react-dart",
+  "name": "react-dart-expander",
   "scripts": {
     "prebuild": "yarn install",
     "build": "./node_modules/.bin/webpack"

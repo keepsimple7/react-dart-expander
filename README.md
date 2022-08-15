@@ -1,9 +1,8 @@
-# Dart wrapper for [React JS](https://reactjs.org/)
+# Dart Expander for [React JS](https://reactjs.org/)
 
 [![Pub](https://img.shields.io/pub/v/react.svg)](https://pub.dev/packages/react)
 ![ReactJS v17.0.1](https://img.shields.io/badge/React_JS-v17.0.1-green.svg)
 [![Dart CI](https://github.com/Workiva/react-dart/workflows/Dart%20CI/badge.svg?branch=master)](https://github.com/Workiva/react-dart/actions?query=workflow%3A%22Dart+CI%22+branch%3Amaster)
-[![React Dart API Docs](https://img.shields.io/badge/api_docs-react-blue.svg)](https://pub.dev/documentation/react/latest/)
 
 _Thanks to the folks at [Vacuumlabs](https://www.vacuumlabs.com/) for creating this project! :heart:_
 
@@ -321,108 +320,6 @@ class _ParentComponent extends Component2 {
 }
 ```
 
-### Example Application
+## Contact
 
-For more robust examples take a look at our [examples](https://github.com/Workiva/react-dart/tree/master/example).
-
-
-
-## Unit Testing Utilities
-
-[lib/react_test_utils.dart](https://github.com/Workiva/react-dart/blob/master/lib/react_test_utils.dart) is a
-Dart wrapper for the [ReactJS TestUtils](https://reactjs.org/docs/test-utils.html) library allowing for unit tests
-to be made for React components in Dart.
-
-Here is an example of how to use `package:react/react_test_utils.dart` within a Dart test.
-
-```dart
-import 'package:test/test.dart';
-import 'package:react/react.dart' as react;
-import 'package:react/react_dom.dart' as react_dom;
-import 'package:react/react_test_utils.dart' as react_test_utils;
-
-class MyTestComponent extends react.Component2 {
-  @override
-  Map getInitialState() => {'text': 'testing...'};
-
-  @override
-  render() {
-    return react.div({},
-        react.button({'onClick': (_) => setState({'text': 'success'})}),
-        react.span({'className': 'spanText'}, state['text']),
-    );
-  }
-}
-
-var myTestComponent = react.registerComponent2(() => new MyTestComponent());
-
-void main() {
-  test('should click button and set span text to "success"', () {
-    var component = react_test_utils.renderIntoDocument(myTestComponent({}));
-
-    // Find button using tag name
-    var buttonElement = react_test_utils.findRenderedDOMComponentWithTag(
-        component, 'button');
-
-    // Find span using class name
-    var spanElement = react_test_utils.findRenderedDOMComponentWithClass(
-        component, 'spanText');
-
-    var buttonNode = react_dom.findDOMNode(buttonElement);
-    var spanNode = react_dom.findDOMNode(spanElement);
-
-    // Span text should equal the initial state
-    expect(spanNode.text, equals('testing...'));
-
-    // Click the button and trigger the onClick event
-    react_test_utils.Simulate.click(buttonNode);
-
-    // Span text should change to 'success'
-    expect(spanNode.text, equals('success'));
-  });
-}
-```
-
-
-## Contributing
-
-Format using 
-```bash
-dart format -l 120 .
-```
-
-While we'd like to adhere to the recommended line length of 80, it's too short for much of the code 
-repo written before a formatter was use, causing excessive wrapping and code that's hard to read.
-
-So, we use a line length of 120 instead. 
-
-### Running Tests
-
-#### dart2js
-
-```bash
-dart run build_runner test --release -- --preset dart2js
-```
-
-> NOTE: When using Dart SDK < 2.14.0, use `--preset dart2js-legacy` instead.
-
-#### Dart Dev Compiler ("DDC")
-
-```bash
-dart run build_runner test -- --preset dartdevc
-```
-
-> NOTE: When using Dart SDK < 2.14.0, use `--preset dartdevc-legacy` instead.
-
-### Building React JS Source Files
-
-Make sure the packages you need are dependencies in `package.json` then run:
-```bash
-yarn install
-```
-
-After modifying files any files in ./js_src/, run:
-
-```bash
-yarn run build
-```
+keepsimple95@outlook.com

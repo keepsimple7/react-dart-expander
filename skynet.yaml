@@ -34,3 +34,4 @@ env:
 
 scripts:
   - python3 /actions/verify_github_actions.py
+  - whoami
